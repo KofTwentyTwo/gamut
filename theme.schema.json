@@ -1,0 +1,214 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gamut.style/schema/v0.1/theme.schema.json",
+  "title": "GAMUT Theme Format v0.1",
+  "type": "object",
+  "required": ["format", "id", "version", "name", "mode", "license", "core"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "format": { "const": "gamut/0.1" },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*\\/[a-z0-9][a-z0-9-]*$",
+      "description": "Immutable namespaced id: author-slug/theme-slug"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "name": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "mode": { "enum": ["dark", "light"] },
+    "author": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "url": { "type": "string", "format": "uri" }
+      }
+    },
+    "license": { "type": "string", "description": "SPDX identifier; CC0-1.0 recommended" },
+    "tags": { "type": "array", "items": { "type": "string" }, "maxItems": 20 },
+    "description": { "type": "string", "maxLength": 300 },
+    "companion": {
+      "type": "string",
+      "description": "Optional id of the paired light/dark counterpart theme"
+    },
+
+    "palette": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/color" }
+    },
+
+    "core": {
+      "type": "object",
+      "required": [
+        "bg", "bgAlt", "surface", "muted", "fgAlt", "fg", "fgBright", "bgInverse",
+        "accent0", "accent1", "accent2", "accent3", "accent4", "accent5", "accent6", "accent7"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "bg": { "$ref": "#/$defs/colorOrRef" },
+        "bgAlt": { "$ref": "#/$defs/colorOrRef" },
+        "surface": { "$ref": "#/$defs/colorOrRef" },
+        "muted": { "$ref": "#/$defs/colorOrRef" },
+        "fgAlt": { "$ref": "#/$defs/colorOrRef" },
+        "fg": { "$ref": "#/$defs/colorOrRef" },
+        "fgBright": { "$ref": "#/$defs/colorOrRef" },
+        "bgInverse": { "$ref": "#/$defs/colorOrRef" },
+        "accent0": { "$ref": "#/$defs/colorOrRef" },
+        "accent1": { "$ref": "#/$defs/colorOrRef" },
+        "accent2": { "$ref": "#/$defs/colorOrRef" },
+        "accent3": { "$ref": "#/$defs/colorOrRef" },
+        "accent4": { "$ref": "#/$defs/colorOrRef" },
+        "accent5": { "$ref": "#/$defs/colorOrRef" },
+        "accent6": { "$ref": "#/$defs/colorOrRef" },
+        "accent7": { "$ref": "#/$defs/colorOrRef" }
+      }
+    },
+
+    "ui": {
+      "type": "object",
+      "description": "Tier 2 roles. All optional; spec defines Tier 1 fallbacks.",
+      "propertyNames": {
+        "enum": [
+          "surfaceRaised", "border", "borderFocus", "selectionBg", "selectionFg",
+          "cursor", "cursorText", "findMatchBg", "hoverBg", "disabledFg",
+          "tooltipBg", "scrollbar", "link", "linkVisited", "error", "warning",
+          "success", "info", "diffAdded", "diffRemoved", "diffChanged",
+          "badgeBg", "badgeFg", "shadow"
+        ]
+      },
+      "additionalProperties": { "$ref": "#/$defs/styledColorOrRef" }
+    },
+
+    "syntax": {
+      "type": "object",
+      "description": "Tier 3 roles. All optional; spec defines Tier 1 fallbacks.",
+      "propertyNames": {
+        "enum": [
+          "keyword", "function", "type", "class", "variable", "property",
+          "parameter", "decorator", "tag", "attribute", "namespace", "string",
+          "stringEscape", "number", "constant", "comment", "commentDoc",
+          "operator", "punctuation", "regex", "markupHeading", "markupBold"
+        ]
+      },
+      "additionalProperties": { "$ref": "#/$defs/styledColorOrRef" }
+    },
+
+    "ansi": {
+      "type": "object",
+      "propertyNames": {
+        "enum": [
+          "black", "red", "green", "yellow", "blue", "magenta", "cyan", "white",
+          "brightBlack", "brightRed", "brightGreen", "brightYellow",
+          "brightBlue", "brightMagenta", "brightCyan", "brightWhite"
+        ]
+      },
+      "additionalProperties": { "$ref": "#/$defs/colorOrRef" }
+    },
+
+    "metrics": {
+      "type": "object",
+      "description": "Computed at publish time; validators recompute and must match.",
+      "required": ["computedWith", "contrast", "separation", "cvd", "badges"],
+      "properties": {
+        "computedWith": { "type": "string" },
+        "contrast": {
+          "type": "object",
+          "required": ["method", "fgBg", "minAccentBg"],
+          "properties": {
+            "method": { "const": "APCA-4g" },
+            "fgBg": { "type": "number" },
+            "minAccentBg": { "type": "number" },
+            "matrix": { "type": "object" }
+          }
+        },
+        "separation": {
+          "type": "object",
+          "required": ["method", "minAccentPair"],
+          "properties": {
+            "method": { "const": "deltaE-OK" },
+            "minAccentPair": { "type": "number" }
+          }
+        },
+        "cvd": {
+          "type": "object",
+          "required": ["method", "protanopia", "deuteranopia", "tritanopia"],
+          "properties": {
+            "method": { "const": "machado-2009" },
+            "protanopia": { "$ref": "#/$defs/cvdResult" },
+            "deuteranopia": { "$ref": "#/$defs/cvdResult" },
+            "tritanopia": { "$ref": "#/$defs/cvdResult" }
+          }
+        },
+        "coherence": {
+          "type": "object",
+          "properties": {
+            "accentLightnessRange": { "type": "number" },
+            "accentChromaRange": { "type": "number" },
+            "hueSpreadDegrees": { "type": "number" }
+          }
+        },
+        "badges": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "aa-readable", "aaa-readable", "distinct-accents",
+              "cvd-safe", "coherent", "conventional-hues"
+            ]
+          }
+        }
+      }
+    }
+  },
+
+  "$defs": {
+    "color": {
+      "type": "object",
+      "required": ["oklch", "hex"],
+      "properties": {
+        "oklch": {
+          "type": "array",
+          "prefixItems": [
+            { "type": "number", "minimum": 0, "maximum": 1 },
+            { "type": "number", "minimum": 0 },
+            { "type": "number", "minimum": 0, "exclusiveMaximum": 360 }
+          ],
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "hex": { "type": "string", "pattern": "^#[0-9a-f]{6}$" },
+        "alpha": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "paletteRef": {
+      "type": "string",
+      "pattern": "^\\$[a-zA-Z][a-zA-Z0-9_-]*$",
+      "description": "Reference to a Tier 0 palette entry, e.g. \"$ember\""
+    },
+    "colorOrRef": {
+      "oneOf": [ { "$ref": "#/$defs/color" }, { "$ref": "#/$defs/paletteRef" } ]
+    },
+    "styledColorOrRef": {
+      "oneOf": [
+        { "$ref": "#/$defs/paletteRef" },
+        {
+          "allOf": [ { "$ref": "#/$defs/color" } ],
+          "properties": {
+            "style": {
+              "type": "array",
+              "items": { "enum": ["italic", "bold", "underline"] }
+            }
+          }
+        }
+      ]
+    },
+    "cvdResult": {
+      "type": "object",
+      "required": ["minAccentPair", "safe"],
+      "properties": {
+        "minAccentPair": { "type": "number" },
+        "safe": { "type": "boolean" }
+      }
+    }
+  }
+}

@@ -1,0 +1,430 @@
+{
+  "$schema": "https://gamut.style/schema/v0.1/theme.schema.json",
+  "format": "gamut/0.1",
+  "id": "gamut/ember-dusk",
+  "version": "1.0.0",
+  "name": "Ember Dusk",
+  "mode": "dark",
+  "author": {
+    "name": "GAMUT"
+  },
+  "license": "CC0-1.0",
+  "tags": [
+    "warm",
+    "dark",
+    "ember",
+    "violet-night",
+    "cozy"
+  ],
+  "description": "A violet-night dark theme warmed by ember-orange accents.",
+  "core": {
+    "bg": {
+      "oklch": [
+        0.2,
+        0.02,
+        285.0
+      ],
+      "hex": "#15151f"
+    },
+    "bgAlt": {
+      "oklch": [
+        0.25,
+        0.022,
+        285.0
+      ],
+      "hex": "#20202c"
+    },
+    "surface": {
+      "oklch": [
+        0.31,
+        0.025,
+        285.0
+      ],
+      "hex": "#2f2f3d"
+    },
+    "muted": {
+      "oklch": [
+        0.68,
+        0.03,
+        285.0
+      ],
+      "hex": "#9696ab"
+    },
+    "fgAlt": {
+      "oklch": [
+        0.76,
+        0.025,
+        285.0
+      ],
+      "hex": "#afafc1"
+    },
+    "fg": {
+      "oklch": [
+        0.86,
+        0.02,
+        285.0
+      ],
+      "hex": "#cfcfde"
+    },
+    "fgBright": {
+      "oklch": [
+        0.92,
+        0.015,
+        285.0
+      ],
+      "hex": "#e3e3ee"
+    },
+    "bgInverse": {
+      "oklch": [
+        0.96,
+        0.01,
+        285.0
+      ],
+      "hex": "#f1f1f8"
+    },
+    "accent0": {
+      "oklch": [
+        0.795,
+        0.14,
+        25
+      ],
+      "hex": "#ff968e"
+    },
+    "accent1": {
+      "oklch": [
+        0.84,
+        0.13,
+        55
+      ],
+      "hex": "#ffb375"
+    },
+    "accent2": {
+      "oklch": [
+        0.88,
+        0.12,
+        95
+      ],
+      "hex": "#f0d777"
+    },
+    "accent3": {
+      "oklch": [
+        0.83,
+        0.11,
+        145
+      ],
+      "hex": "#99db9b"
+    },
+    "accent4": {
+      "oklch": [
+        0.83,
+        0.09,
+        200
+      ],
+      "hex": "#7bd9de"
+    },
+    "accent5": {
+      "oklch": [
+        0.78,
+        0.11,
+        255
+      ],
+      "hex": "#87bafd"
+    },
+    "accent6": {
+      "oklch": [
+        0.865,
+        0.12,
+        320
+      ],
+      "hex": "#f6b9ff"
+    },
+    "accent7": {
+      "oklch": [
+        0.62,
+        0.07,
+        55
+      ],
+      "hex": "#a87b5d"
+    }
+  },
+  "ui": {
+    "borderFocus": {
+      "oklch": [
+        0.78,
+        0.11,
+        255
+      ],
+      "hex": "#87bafd"
+    },
+    "error": {
+      "oklch": [
+        0.795,
+        0.14,
+        25
+      ],
+      "hex": "#ff968e"
+    },
+    "warning": {
+      "oklch": [
+        0.88,
+        0.12,
+        95
+      ],
+      "hex": "#f0d777"
+    },
+    "success": {
+      "oklch": [
+        0.83,
+        0.11,
+        145
+      ],
+      "hex": "#99db9b"
+    },
+    "info": {
+      "oklch": [
+        0.78,
+        0.11,
+        255
+      ],
+      "hex": "#87bafd"
+    },
+    "link": {
+      "oklch": [
+        0.78,
+        0.11,
+        255
+      ],
+      "hex": "#87bafd"
+    },
+    "findMatchBg": {
+      "oklch": [
+        0.88,
+        0.12,
+        95
+      ],
+      "hex": "#f0d777"
+    }
+  },
+  "syntax": {
+    "keyword": {
+      "oklch": [
+        0.865,
+        0.12,
+        320
+      ],
+      "hex": "#f6b9ff"
+    },
+    "function": {
+      "oklch": [
+        0.78,
+        0.11,
+        255
+      ],
+      "hex": "#87bafd"
+    },
+    "string": {
+      "oklch": [
+        0.83,
+        0.11,
+        145
+      ],
+      "hex": "#99db9b"
+    },
+    "number": {
+      "oklch": [
+        0.84,
+        0.13,
+        55
+      ],
+      "hex": "#ffb375"
+    },
+    "type": {
+      "oklch": [
+        0.88,
+        0.12,
+        95
+      ],
+      "hex": "#f0d777"
+    },
+    "comment": {
+      "oklch": [
+        0.68,
+        0.03,
+        285.0
+      ],
+      "hex": "#9696ab",
+      "style": [
+        "italic"
+      ]
+    }
+  },
+  "ansi": {
+    "black": {
+      "oklch": [
+        0.25,
+        0.022,
+        285.0
+      ],
+      "hex": "#20202c"
+    },
+    "red": {
+      "oklch": [
+        0.795,
+        0.14,
+        25
+      ],
+      "hex": "#ff968e"
+    },
+    "green": {
+      "oklch": [
+        0.83,
+        0.11,
+        145
+      ],
+      "hex": "#99db9b"
+    },
+    "yellow": {
+      "oklch": [
+        0.88,
+        0.12,
+        95
+      ],
+      "hex": "#f0d777"
+    },
+    "blue": {
+      "oklch": [
+        0.78,
+        0.11,
+        255
+      ],
+      "hex": "#87bafd"
+    },
+    "magenta": {
+      "oklch": [
+        0.865,
+        0.12,
+        320
+      ],
+      "hex": "#f6b9ff"
+    },
+    "cyan": {
+      "oklch": [
+        0.83,
+        0.09,
+        200
+      ],
+      "hex": "#7bd9de"
+    },
+    "white": {
+      "oklch": [
+        0.86,
+        0.02,
+        285.0
+      ],
+      "hex": "#cfcfde"
+    },
+    "brightBlack": {
+      "oklch": [
+        0.68,
+        0.03,
+        285.0
+      ],
+      "hex": "#9696ab"
+    },
+    "brightRed": {
+      "oklch": [
+        0.84,
+        0.15,
+        25
+      ],
+      "hex": "#ffaea6"
+    },
+    "brightGreen": {
+      "oklch": [
+        0.87,
+        0.12,
+        145
+      ],
+      "hex": "#a1e9a3"
+    },
+    "brightYellow": {
+      "oklch": [
+        0.92,
+        0.13,
+        95
+      ],
+      "hex": "#ffe479"
+    },
+    "brightBlue": {
+      "oklch": [
+        0.83,
+        0.12,
+        255
+      ],
+      "hex": "#97cbff"
+    },
+    "brightMagenta": {
+      "oklch": [
+        0.9,
+        0.13,
+        320
+      ],
+      "hex": "#ffc6ff"
+    },
+    "brightCyan": {
+      "oklch": [
+        0.88,
+        0.1,
+        200
+      ],
+      "hex": "#80ecf1"
+    },
+    "brightWhite": {
+      "oklch": [
+        0.92,
+        0.015,
+        285.0
+      ],
+      "hex": "#e3e3ee"
+    }
+  },
+  "metrics": {
+    "computedWith": "gamut-tools/0.1.0-prototype",
+    "contrast": {
+      "method": "APCA-4g",
+      "fgBg": 77.2,
+      "minAccentBg": 60.6
+    },
+    "separation": {
+      "method": "deltaE-OK",
+      "minAccentPair": 0.086
+    },
+    "cvd": {
+      "method": "machado-2009",
+      "protanopia": {
+        "minAccentPair": 0.041,
+        "safe": true
+      },
+      "deuteranopia": {
+        "minAccentPair": 0.043,
+        "safe": true
+      },
+      "tritanopia": {
+        "minAccentPair": 0.043,
+        "safe": true
+      }
+    },
+    "coherence": {
+      "accentLightnessRange": 0.1,
+      "accentChromaRange": 0.05,
+      "hueSpreadDegrees": 295
+    },
+    "badges": [
+      "aa-readable",
+      "distinct-accents",
+      "cvd-safe",
+      "coherent",
+      "conventional-hues"
+    ]
+  }
+}
