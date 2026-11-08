@@ -1,5 +1,6 @@
 """Generate the worked-example GAMUT theme 'Ember Dusk' with computed metrics."""
-import json, itertools
+import itertools
+import json
 from coloraide import Color
 
 # ---------- APCA (SAPC-4g) ----------

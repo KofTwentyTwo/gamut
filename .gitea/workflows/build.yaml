@@ -1,0 +1,9 @@
+name: build
+on:
+  push:
+jobs:
+  lint:
+    uses: self:KofTwentyTwo/ci-workflows/.gitea/workflows/lint.yaml@small-workflows
+    with:
+      json: '**/*.json'
+      ruff: '**/*.py'
