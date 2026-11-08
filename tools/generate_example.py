@@ -1,7 +1,9 @@
 """Generate the worked-example GAMUT theme 'Ember Dusk' with computed metrics."""
 import itertools
 import json
+
 from coloraide import Color
+
 
 # ---------- APCA (SAPC-4g) ----------
 def _y(hexcol):
