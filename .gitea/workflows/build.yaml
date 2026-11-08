@@ -3,7 +3,7 @@ on:
   push:
 jobs:
   lint:
-    uses: self:KofTwentyTwo/ci-workflows/.gitea/workflows/lint.yaml@main
+    uses: self:KofTwentyTwo/ci-workflows/.gitea/workflows/lint.yaml@v1
     with:
       json: '**/*.json'
       ruff: '**/*.py'
